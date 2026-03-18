@@ -1,0 +1,24 @@
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+}
+
+.input-group {
+ display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.input-group label {
+    font-size: 36px;
+    color: #000;
+}
+
+.input-group input {
+    font-size: 25px;
+    padding: 20px;
+}
