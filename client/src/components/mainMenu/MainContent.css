@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-content-wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    background: linear-gradient(135deg, #667eea 0%, #584ba2 100%);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.main-content h1 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.inputs-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 250px;
+    width: 100%;
+}
