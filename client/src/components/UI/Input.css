@@ -8,10 +8,14 @@ select {
   border-radius: 25px;
 }
 
+input:focus {
+    outline: none;
+}
+
 .input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .input-group label {
