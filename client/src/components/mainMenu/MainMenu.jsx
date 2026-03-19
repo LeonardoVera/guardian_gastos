@@ -1,9 +1,9 @@
-import Sidebar from "./SideBar"
+import MainContent from "./MainContent"
 
 export default function MainMenu() {
     return (
         <div className="main-menu">
-            <Sidebar />
+            <MainContent />
         </div>
     )
 }

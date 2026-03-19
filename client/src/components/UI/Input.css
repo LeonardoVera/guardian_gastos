@@ -1,10 +1,11 @@
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 25px;
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 25px;
 }
 
 input:focus {
@@ -18,11 +19,15 @@ input:focus {
 }
 
 .input-group label {
-    font-size: 36px;
-    color: #000;
+  font-size: 36px;
+  color: #000;
 }
 
-.input-group input {
-    font-size: 25px;
-    padding: 20px;
+.input-group input,
+.input-group select {
+  font-size: 25px;
+  padding: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  font-family: inherit;
 }

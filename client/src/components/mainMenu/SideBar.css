@@ -4,20 +4,22 @@
     height: 100vh;
     background: linear-gradient(135deg, #1a2a4e 0%, #506ca3 100%);
     padding: 0;
-    transition: width 0.3s ease;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 100;
+    transition: width 0.3s ease, position 0.3s ease;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .sidebar.collapsed {
     width: 80px;
+    position: relative;
 }
 
 .sidebar.expanded {
     width: 280px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
 }
 
 .sidebar-header {
