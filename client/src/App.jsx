@@ -10,9 +10,9 @@ import {BrowserRouter} from 'react-router'
 function App() {
 
   return (
-    <>
-      <LoginPage />
-    </>
+    <BrowserRouter>
+      <MainMenuPage/>
+    </BrowserRouter>
   );
 }
 

@@ -1,3 +1,11 @@
+.btn{
+    transition: transform 0.2s ease;
+}
+
+.btn:hover{
+    transform: scale(1.02);
+}
+
 .btn-login {
     background-color: #53AF9F;
     color: #fff;
@@ -14,4 +22,13 @@
     color: #fff;
     border-radius: 30px;
     opacity: 0.8;
+}
+
+.btn-add-gasto{
+    font-size: 2.2rem;
+    padding: 15px 50px;
+    background-color: #48abcf;
+    border-radius: 30px;
+    border: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }

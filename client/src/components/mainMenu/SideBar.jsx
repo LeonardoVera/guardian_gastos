@@ -9,37 +9,24 @@ import "./SideBar.css";
 
 export default function Sidebar() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
     { id: 1, icon: iconHome, label: "Menu principal", endpoint: "/main-menu" },
-    {
-      id: 2,
-      icon: iconHistory,
-      label: "Historial de gastos",
-      endpoint: "/history",
-    },
-    {
-      id: 3,
-      icon: iconResumen,
-      label: "Resumen de gastos",
-      endpoint: "/summary",
-    },
+    { id: 2, icon: iconHistory, label: "Historial de gastos", endpoint: "/history"},
+    { id: 3, icon: iconResumen, label: "Resumen de gastos", endpoint: "/summary"},
     { id: 4, icon: iconLogout, label: "Cerrar sesion", endpoint: "/logout" },
   ];
 
   return (
-    <aside
-      className={`sidebar ${isHovered ? "expanded" : "collapsed"}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <aside className={`sidebar ${isHovered ? "expanded" : "collapsed"}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <div className="sidebar-header">
         <div className="sidebar-icon">
           <img src={iconBank} alt="Icono de banco" />
         </div>
         {isHovered && <span className="sidebar-title">Gestor de gastos</span>}
       </div>
-
+      <div className={`overlay ${isHovered ? "active" : ""}`} onClick={() => {setIsOpen(false);setIsHovered(false)}}></div>
       {/* menu de navegacion con enlaces */}
       <nav className="sidebar-nav">
         {menuItems.map((item) => (

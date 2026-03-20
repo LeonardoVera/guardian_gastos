@@ -1,0 +1,42 @@
+body{
+    margin-left: 80px;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: "Scheherazade New",'Arial', sans-serif;
+}
+
+h1{
+    margin: 0;
+}
+
+.main-menu{
+    background: linear-gradient(rgb(18, 63, 167), rgb(13, 105, 116));
+    height: 100vh;
+    padding-left: 40px;
+}
+.main-menu-form{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.main-menu-form__inputs{
+    display: flex;
+    gap: 50px;
+}
+
+.main-menu-form__inputs label{
+    color: #fff;
+}
+
+.main-menu > h1{
+    font-size: 4rem;
+    color: #fff;
+    padding: 30px 0;
+}
+
+.main-menu-form__btn{
+    align-self: center;
+}
+
+
