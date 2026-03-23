@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
-const Gasto = require('./Gasto');
 
 const User = sequelize.define('User', {
   id: {
@@ -21,8 +20,5 @@ const User = sequelize.define('User', {
   tableName: 'usuario', 
   timestamps: false,
 });
-
-// definimos la relacion entre user y gasto
-User.hasMany(Gasto, { foreignKey: 'usuario_id' });
 
 module.exports = User;
