@@ -3,16 +3,34 @@ import "./Login.css";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
 import { useNavigate } from "react-router";
+import { useState } from "react";
+
 
 export default function Login() {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    //Aqui va tu logica chamo
-
-    navigate("/main");
+    // peticion post al servidor de login
+    fetch(import.meta.env.VITE_LOCAL_HOST + "/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Manejar la respuesta del servidor
+        console.log(data);
+        navigate("/main");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
   return (
     <>
@@ -22,20 +40,22 @@ export default function Login() {
           <h1 className="form-header__title">Guardian de gastos</h1>
         </header>
         <h1 className="form-section__title">Inicia sesion</h1>
-        <form action="submit" className="login-form">
+        <form action="submit" className="login-form" onSubmit={handleLogin}>
           <Input
             id="username"
             label="Usuario"
             type="text"
             placeholder="Usuario"
+            onChange={(e) => setUsername(e.target.value)}
           />
           <Input
             id="password"
             label="Contraseña"
             type="password"
             placeholder="Contraseña"
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <Button text="Iniciar sesion" type="login" onClick={handleLogin}></Button>
+          <Button text="Iniciar sesion" type="login"></Button>
         </form>
       </section>
       <section className="welcome-section">
