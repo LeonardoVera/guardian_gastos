@@ -1,3 +1,10 @@
+import iconDescription from '../../assets/icons/icon-description.svg';
+import iconAmount from '../../assets/icons/icon-amount.svg';
+import iconDate from '../../assets/icons/icon-date.svg';
+import iconCategory from '../../assets/icons/icon-category.svg';
+import './Table.css';
+
+
 import { useState, useEffect } from 'react';
 
 function Table() {
@@ -48,10 +55,30 @@ function Table() {
             <table>
                 <thead>
                     <tr>
-                        <th>Descripcion</th>
-                        <th>Monto</th>
-                        <th>Fecha</th>
-                        <th>Categoria</th>
+                        <th>
+                            <div className="table-header">
+                                <img src={iconDescription} alt="Descripcion" />
+                                <p>Descripcion</p>
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-header">
+                                <img src={iconAmount} alt="Monto" />
+                                <p>Monto</p>
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-header">
+                                <img src={iconDate} alt="Fecha" />
+                                <p>Fecha</p>
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-header">
+                                <img src={iconCategory} alt="Categoria" />
+                                <p>Categoria</p>
+                            </div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
