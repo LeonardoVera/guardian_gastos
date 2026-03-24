@@ -13,7 +13,7 @@ export default function Sidebar() {
 
   const menuItems = [
     { id: 1, icon: iconHome, label: "Menu principal", endpoint: "/main" },
-    { id: 2, icon: iconHistory, label: "Historial de gastos", endpoint: "/history"},
+    { id: 2, icon: iconHistory, label: "Historial de gastos", endpoint: "/historial"},
     { id: 3, icon: iconResumen, label: "Resumen de gastos", endpoint: "/summary"},
     { id: 4, icon: iconLogout, label: "Cerrar sesion", endpoint: "/logout" },
   ];
