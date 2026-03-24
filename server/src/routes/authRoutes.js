@@ -1,5 +1,3 @@
-import { generateToken } from "../services/tokenService";
-
 const router = require("express").Router();
 const User = require("../models/User");
 
@@ -17,18 +15,16 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
 
-    // Generamos el token JWT para el usuario autenticado
-    const token = generateToken(user);
     const message = created
       ? "Usuario creado y autenticado"
       : "Usuario autenticado";
     return res.json({
       message,
-      user: { id: user.id, username: user.username },
-      tokenGenerado: token,
+      user: { id: user.id, username: user.username }
     });
   } catch (error) {
-    console.error("Error en la autenticación:", error);
+    console.error("Error en la autenticacion:", error);
+    return res.status(500).json({ message: "Error interno del servidor" });
   }
 });
 
