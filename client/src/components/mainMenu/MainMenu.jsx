@@ -25,11 +25,13 @@ export default function MainMenu() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                userId: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).id : null,
-                descripcion: "descripcion",
-                monto: 100,
-                fecha: "2024-06-01",
-                categoria: "Alimentacion"
+                usuario_id: localStorage.getItem("user") ?
+                    JSON.parse(localStorage.getItem("user")).id :
+                    null,
+                descripcion: e.target.descripcion.value,
+                monto: e.target.monto.value,
+                fecha: e.target.fecha.value,
+                categoria: e.target.categoria.value
             }),
         })
             .then((response) => {
@@ -47,15 +49,15 @@ export default function MainMenu() {
         <main className="main-menu">
             <Sidebar />
             <h1>Bienvenido, <span className="h1-username">{user.username}</span></h1>
-            <form className="main-menu-form">
+            <form className="main-menu-form" onSubmit ={handleAddGasto}>
                 <div className="main-menu-form__inputs">
                     <Input id="descripcion" label="Descripcion" type="text"></Input>
-                    <Input id="monto" label="Monto" type="decimal"></Input>
+                    <Input id="monto" label="Monto" type="number"></Input>
                     <Input id="fecha" label="Fecha" type="date"></Input>
                     <Input id="categoria" label="Categoria" type="select" options={categorias}></Input>
                 </div>
                 <div className="main-menu-form__btn">
-                    <Button text="Agregar gasto" type="add-gasto" onClick={handleAddGasto}></Button>
+                    <Button text="Agregar gasto" type="add-gasto"></Button>
                 </div>
             </form>
         </main>
