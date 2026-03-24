@@ -22,16 +22,20 @@ export default function Login() {
       },
       body: JSON.stringify({ username, password }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        return response.json();
+      })
       .then((data) => {
         // Manejar la respuesta del servidor
         console.log(data);
+        localStorage.setItem("user", JSON.stringify(data.user));
         navigate("/main");
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }
+  
   return (
     <>
       <section className="form-section">
