@@ -12,6 +12,18 @@ input:focus {
     outline: none;
 }
 
+.input-text {
+  cursor: text;
+}
+
+.input-number {
+  cursor: text;
+}
+
+.input-select {
+  cursor: pointer;
+}
+
 .input-group {
     display: flex;
     flex-direction: column;
@@ -27,7 +39,18 @@ input:focus {
 .input-group select {
   font-size: 25px;
   padding: 20px;
-  cursor: pointer;
   background-color: #fff;
   font-family: inherit;
+}
+
+.input-group input {
+  cursor: text;
+}
+
+input[type="date"] {
+  cursor: pointer;
+}
+
+.input-group select {
+  cursor: pointer;
 }

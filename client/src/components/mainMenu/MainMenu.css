@@ -12,7 +12,8 @@ h1{
 .main-menu{
     background: #F8FAFC;
     height: 100vh;
-    padding-left: 40px;
+    padding: 0 90px;
+    
 }
 .main-menu-form{
     display: flex;
@@ -23,6 +24,12 @@ h1{
 .main-menu-form__inputs{
     display: flex;
     gap: 50px;
+    width: 100%;
+}
+
+.main-menu-form__inputs > div{
+    flex: 1;
+    min-width: 0;
 }
 
 .main-menu-form__inputs label{
