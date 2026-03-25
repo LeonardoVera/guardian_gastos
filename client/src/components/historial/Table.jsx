@@ -87,7 +87,7 @@ function Table() {
                             <tr key={gasto.id}>
                                 <td>{gasto.descripcion}</td>
                                 <td>S./ {gasto.monto}</td>
-                                <td>{new Date(gasto.fecha).toLocaleDateString()}</td>
+                                <td>{gasto.fecha.split('-').reverse().join('/')}</td>
                                 <td>{gasto.categoria}</td>
                             </tr>
                         ))
