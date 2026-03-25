@@ -41,7 +41,7 @@ const RadixChart = ({ data }) => {
   return (
       <div className="chart-wrapper">
         <h2 className="chart-title">Gastos por Categoria</h2>
-        <ResponsiveContainer width="100%" height="100%" className="container">
+        <ResponsiveContainer width="100%" height="100%" className="container-chart">
           <PieChart>
             <Pie
             data={chartData}

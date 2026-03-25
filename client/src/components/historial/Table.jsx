@@ -3,7 +3,7 @@ import iconAmount from '../../assets/icons/icon-amount.svg';
 import iconDate from '../../assets/icons/icon-date.svg';
 import iconCategory from '../../assets/icons/icon-category.svg';
 import './Table.css';
-
+import SortMenu from './SortMenu';
 
 import { useState, useEffect } from 'react';
 
@@ -11,6 +11,8 @@ function Table() {
     const [gastos, setGastos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [sortType, setSortType] = useState(null);
+    const [showSortMenu, setShowSortMenu] = useState(false);
 
     useEffect(() => {
         const fetchGastos = async () => {
@@ -47,11 +49,43 @@ function Table() {
         fetchGastos();
     }, []);
 
+    const sortedGastos = [...gastos].sort((a, b) => {
+        if (sortType === 'fecha-reciente') {
+            return new Date(b.fecha) - new Date(a.fecha);
+        } else if (sortType === 'fecha-antigua') {
+            return new Date(a.fecha) - new Date(b.fecha);
+        } else if (sortType === 'monto-mayor') {
+            return b.monto - a.monto;
+        } else if (sortType === 'monto-menor') {
+            return a.monto - b.monto;
+        }
+        return 0;
+    });
+
     if (loading) return <div>Cargando...</div>;
     if (error) return <div>Error: {error}</div>;
 
     return (
         <div>
+            <div className="sort-button-container">
+                <button 
+                    className="sort-button-main"
+                    onClick={() => setShowSortMenu(true)}
+                >
+                    Ordenar por ↓
+                </button>
+            </div>
+
+            {showSortMenu && (
+                <SortMenu 
+                    onSort={(type) => {
+                        setSortType(type);
+                        setShowSortMenu(false);
+                    }}
+                    onClose={() => setShowSortMenu(false)}
+                />
+            )}
+
             <table>
                 <thead>
                     <tr>
@@ -82,8 +116,8 @@ function Table() {
                     </tr>
                 </thead>
                 <tbody>
-                    {gastos.length > 0 ? (
-                        gastos.map((gasto) => (
+                    {sortedGastos.length > 0 ? (
+                        sortedGastos.map((gasto) => (
                             <tr key={gasto.id}>
                                 <td>{gasto.descripcion}</td>
                                 <td>S./ {gasto.monto}</td>

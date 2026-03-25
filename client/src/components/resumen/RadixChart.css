@@ -13,7 +13,7 @@
     color: #1f2937;
 }
 
-.container {
+.container-chart {
     padding: 0px;
     flex-grow: 1;
     min-height: 400px;
