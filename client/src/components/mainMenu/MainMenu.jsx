@@ -4,6 +4,7 @@ import Input from "../UI/Input"
 import Button from "../UI/Button"
 import { useState } from "react"
 import { useEffect } from "react"
+import { useAddGasto } from "../../hooks/useAddGasto"
 
 export default function MainMenu() {
 
@@ -18,31 +19,13 @@ export default function MainMenu() {
 
     const handleAddGasto = (e) => {
         e.preventDefault();
+        let descripcion = e.target.descripcion.value;
+        let monto = e.target.monto.value;
+        let fecha = e.target.fecha.value;
+        let categoria = e.target.categoria.value;
 
-        fetch(import.meta.env.VITE_LOCAL_HOST + "/addGasto", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                usuario_id: localStorage.getItem("user") ?
-                    JSON.parse(localStorage.getItem("user")).id :
-                    null,
-                descripcion: e.target.descripcion.value,
-                monto: e.target.monto.value,
-                fecha: e.target.fecha.value,
-                categoria: e.target.categoria.value
-            }),
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                console.log("Gasto agregado:", data);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            })
+        // customHook para realizar una peticion POST de agregar gasto
+        useAddGasto(user, descripcion, monto, fecha, categoria);
         e.target.reset();
     }
 
